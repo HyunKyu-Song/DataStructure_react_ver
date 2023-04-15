@@ -4,3 +4,8 @@
    border-radius: 20px;
    background-color: coral;
 }
+
+.stack-header h2{
+   font-family: 'Open Sans', sans-serif;
+   color: cornflowerblue;
+}
