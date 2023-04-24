@@ -1,0 +1,106 @@
+body{
+   overflow-y: hidden;
+}
+
+.home{
+   height: 100vh;
+}
+
+.home h2 {
+   font-family: 'Open Sans', sans-serif;
+}
+
+.home-skill {
+   opacity: 0;
+   display: flex;
+   justify-content: space-evenly;
+   list-style: none;
+   -webkit-touch-callout: none;
+   user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   -webkit-user-select: none;
+}
+
+.show{
+   animation-name: title;
+   animation-duration: 1.3s;
+   opacity: 1;
+   transition: all 1s;
+}
+
+.home-skill li:hover {
+   transform: scale(1.1);
+   transition: all 0.5s;
+}
+
+.home-example{
+   height: 100vh;
+}
+
+.home-example-img{
+   overflow-x: scroll;
+}
+
+.home-example img {
+   margin-top: 10px;
+   margin-right: 20px;
+   border-radius: 10px;
+   border: 3px solid black;
+}
+
+.down {
+   position: fixed;
+   bottom: 100px;
+   cursor: pointer;
+}
+
+.down:hover {
+   transform: translateY(20px);
+   transition: all 0.5s;
+}
+
+.up {
+   position: fixed;
+   top: 50px;
+   cursor: pointer;
+}
+
+.up:hover {
+   transform: translateY(20px);
+   transition: all 0.5s;
+}
+
+.skill-btn {
+   position: fixed;
+   left: -70px;
+   writing-mode: vertical-rl;
+   text-orientation: upright;
+   cursor: pointer;
+   background-color: #61DBFB;
+   padding: 15px;
+   border-radius: 10px;
+}
+
+.skill-btn:hover {
+   transform: translateX(30px);
+   transition: all 0.5s;
+}
+
+.home-example-img{
+   display: flex;
+}
+
+@keyframes title {
+   0% {
+      transform: translateX(-200px);
+   }
+
+   33% {
+      transform: skewX(20deg);
+   }
+
+   100% {
+      transform: translateX(0px), skewX(0deg);
+   }
+}
