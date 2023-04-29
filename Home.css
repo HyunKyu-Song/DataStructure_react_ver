@@ -1,13 +1,30 @@
 body{
    overflow-y: hidden;
+   overflow-x: hidden;
 }
 
 .home{
    height: 100vh;
 }
 
-.home h2 {
+.home-title h2 {
    font-family: 'Open Sans', sans-serif;
+}
+
+.home-title h2{
+   animation-name: homeTitleEffect;
+   animation-duration: 1.5s;
+   animation-fill-mode: forwards;
+}
+
+.home-contentText :first-child{
+   animation-name: contentTextEffectL;
+   animation-duration: 2s;
+}
+
+.home-contentText :last-child{
+   animation-name: contentTextEffectR;
+   animation-duration: 2s;
 }
 
 .home-skill {
@@ -22,8 +39,8 @@ body{
    -webkit-user-select: none;
 }
 
-.show{
-   animation-name: title;
+.showSkill{
+   animation-name: skill;
    animation-duration: 1.3s;
    opacity: 1;
    transition: all 1s;
@@ -91,16 +108,28 @@ body{
    display: flex;
 }
 
-@keyframes title {
-   0% {
-      transform: translateX(-200px);
-   }
+@keyframes skill {
+   0% {transform: translateX(-200px);}
+   33% {transform: skewX(20deg);}
+   100% {transform: translateX(0px), skewX(0deg);}
+}
 
-   33% {
-      transform: skewX(20deg);
-   }
+@keyframes homeTitleEffect {
+   0% {transform: translateY(-200px);}
+   20% {transform: translateY(50px);}
+   70% {transform: translateY(-20px);}
+   75% {transform: translateY(10px);}
+   90% {transform: translateY(-10px);}
+   93% {transform: translateY(0px);}
+}
 
-   100% {
-      transform: translateX(0px), skewX(0deg);
-   }
+@keyframes contentTextEffectL {
+   0% {transform: translateX(-1000px);}
+   33% {transform: skewX(30deg);}
+   100% {transform: translateX(0px), skewX(0deg);}
+}
+@keyframes contentTextEffectR {
+   0% {transform: translateX(1000px);}
+   33% {transform: skewX(-30deg);}
+   100% {transform: translateX(0px), skewX(0deg);}
 }

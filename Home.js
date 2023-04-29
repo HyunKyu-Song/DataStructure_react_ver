@@ -24,7 +24,7 @@ function Home() {
 
             <div className='home-skill-container'>
                <div className='skill-btn' style={{ paddingLeft: '50px' }} onClick={() => {
-                  if (show == '') setShow('show'); else setShow('');
+                  if (show == '') setShow('showSkill'); else setShow('');
                }}><strong>사용 기술</strong></div>
 
                <div className={`home-skill my-4 ${show}`}>
