@@ -4,17 +4,27 @@ body{
 }
 
 .home{
-   height: 100vh;
+   height: 90vh;
 }
 
 .home-title h2 {
    font-family: 'Open Sans', sans-serif;
-}
-
-.home-title h2{
    animation-name: homeTitleEffect;
    animation-duration: 1.5s;
    animation-fill-mode: forwards;
+   -webkit-touch-callout: none;
+   user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   -webkit-user-select: none;
+}
+
+.home-contentText{
+   -webkit-touch-callout: none;
+   user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   -webkit-user-select: none;
 }
 
 .home-contentText :first-child{
@@ -66,9 +76,26 @@ body{
    border: 3px solid black;
 }
 
+.example-img{
+   border-radius: 10px;
+   border: 3px solid black;
+   cursor: pointer;
+}
+
+.down-text{
+   position: fixed;
+   left: 42%;
+   bottom: 80px;
+   -webkit-touch-callout: none;
+   user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   -webkit-user-select: none;
+}
+
 .down {
    position: fixed;
-   bottom: 100px;
+   bottom: 65px;
    cursor: pointer;
 }
 
@@ -79,12 +106,12 @@ body{
 
 .up {
    position: fixed;
-   top: 50px;
+   top: 20px;
    cursor: pointer;
 }
 
 .up:hover {
-   transform: translateY(20px);
+   transform: translateY(-20px);
    transition: all 0.5s;
 }
 

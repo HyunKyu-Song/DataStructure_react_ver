@@ -19,7 +19,7 @@ function Home() {
 
             <div className='home-contentText my-5'>
                <h4>책에서 글과 그림으로 보던 자료구조는 이제 그만</h4>
-               <h4>직접 데이터를 입력, 생성, 삭제해보며 배우는 <strong>자료구조 시뮬레이션</strong></h4>
+               <h4>직접 데이터를 <strong>입력</strong>, <strong>삭제</strong>해보며 배우는 <strong>자료구조 시뮬레이션</strong></h4>
             </div>
 
             <div className='home-skill-container'>
@@ -36,35 +36,38 @@ function Home() {
                   <li><FontAwesomeIcon style={{ color: '#61DBFB' }} className='fa-5x' icon={faReact} /> React</li>
                </div>
             </div>
-
+            {/* <h3><strong>시뮬레이션 예시</strong></h3> */}
+            <Marquee className='w-100 mt-5' speed={150} gradient={true} pauseOnClick={true}>
+               <img src='./img/stack1.jpg' className='w-50 example-img'></img>
+               <img src='./img/stack2.jpg' className='w-50 example-img'></img>
+               <img src='./img/stack3.jpg' className='w-50 example-img'></img>
+               <img src='./img/stack4.jpg' className='w-50 example-img'></img>
+               <img src='./img/stack5.jpg' className='w-50 example-img'></img>
+               <img src='./img/queue1.jpg' className='w-50 example-img'></img>
+               <img src='./img/queue2.jpg' className='w-50 example-img'></img>
+               <img src='./img/queue3.jpg' className='w-50 example-img'></img>
+               <img src='./img/queue4.jpg' className='w-50 example-img'></img>
+               <img src='./img/queue5.jpg' className='w-50 example-img'></img>
+            </Marquee>
             
-
             {
                upDown == 'down' ?
-                  <FontAwesomeIcon onClick={() => {
-                     window.scrollBy(0, 900);
-                     setUpDown('up');
-                  }} className='fa-3x down' icon={faAnglesDown} />
+                  <>
+                     <FontAwesomeIcon onClick={() => {
+                        window.scrollBy(0, 900);
+                        setUpDown('up');
+                     }} className='fa-3x down' icon={faAnglesDown} />
+                     <strong className='down-text'>Code가 궁금하다면❓</strong>
+                  </>
                   : <FontAwesomeIcon onClick={() => {
                      window.scrollBy(0, -2000);
                      setUpDown('down');
                   }} className='fa-3x up' icon={faAnglesUp} />
             }
-
          </div>
 
          <div className='home-example container text-center my-5'>
-            <h3><strong>시뮬레이션 예시</strong></h3>
-            <div className='home-example-img mt-5 w-100'>
-               <img src='./stack.jpg' className='w-75'></img>
-               <img src='./queue.jpg' className='w-75'></img>
-               <img src='./queue2.jpg' className='w-75'></img>
-            </div>
-            {/* <Marquee className='w-100 mt-5'>
-               <img src='./stack.jpg' className='w-75'></img>
-               <img src='./queue.jpg' className='w-75'></img>
-               <img src='./queue2.jpg' className='w-75'></img>
-            </Marquee> */}
+            <h3><strong>C언어로 알아보는 자료구조</strong></h3>
          </div>
       </>
    )
