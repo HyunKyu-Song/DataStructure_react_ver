@@ -1,10 +1,10 @@
-body{
-   overflow-y: hidden;
+body {
+   /* overflow-y: hidden; */
    overflow-x: hidden;
 }
 
-.home{
-   height: 90vh;
+.home {
+   height: 100vh;
 }
 
 .home-title h2 {
@@ -19,7 +19,7 @@ body{
    -webkit-user-select: none;
 }
 
-.home-contentText{
+.home-contentText {
    -webkit-touch-callout: none;
    user-select: none;
    -moz-user-select: none;
@@ -27,12 +27,12 @@ body{
    -webkit-user-select: none;
 }
 
-.home-contentText :first-child{
+.home-contentText :first-child {
    animation-name: contentTextEffectL;
    animation-duration: 2s;
 }
 
-.home-contentText :last-child{
+.home-contentText :last-child {
    animation-name: contentTextEffectR;
    animation-duration: 2s;
 }
@@ -49,7 +49,7 @@ body{
    -webkit-user-select: none;
 }
 
-.showSkill{
+.showSkill {
    animation-name: skill;
    animation-duration: 1.3s;
    opacity: 1;
@@ -61,30 +61,15 @@ body{
    transition: all 0.5s;
 }
 
-.home-example{
-   height: 100vh;
-}
-
-.home-example-img{
-   overflow-x: scroll;
-}
-
-.home-example img {
-   margin-top: 10px;
-   margin-right: 20px;
-   border-radius: 10px;
-   border: 3px solid black;
-}
-
-.example-img{
+.example-img {
    border-radius: 10px;
    border: 3px solid black;
    cursor: pointer;
 }
 
-.down-text{
+.down-text {
    position: fixed;
-   left: 42%;
+   left: 53%;
    bottom: 80px;
    -webkit-touch-callout: none;
    user-select: none;
@@ -121,9 +106,13 @@ body{
    writing-mode: vertical-rl;
    text-orientation: upright;
    cursor: pointer;
-   background-color: #61DBFB;
+   /* color: white; */
+   background-color: #aaa;
    padding: 15px;
+   padding-top: 30px;
+   padding-bottom: 30px;
    border-radius: 10px;
+   /* border: 5px solid cornflowerblue; */
 }
 
 .skill-btn:hover {
@@ -131,32 +120,106 @@ body{
    transition: all 0.5s;
 }
 
-.home-example-img{
-   display: flex;
+.home-book {
+   height: 100vh;
 }
 
+.home-book img {
+   width: 400px;
+   height: 545px;
+}
+
+.book-img {
+   width: 400px;
+   height: 545px;
+   overflow-y: hidden;
+   /* display: flex; */
+   margin: auto;
+}
+
+.book-img img{
+   float: left;
+}
+
+.smooth-Left {
+   transform: translateY(0px);
+   transition: all 0.5s;
+}
+
+.smooth-Right {
+   transform: translateY(-545px);
+   transition: all 0.5s;
+}
+
+/* .book1:hover{
+   transform: translateX(-400px);
+   transition: all 0.5s;
+} */
+
 @keyframes skill {
-   0% {transform: translateX(-200px);}
-   33% {transform: skewX(20deg);}
-   100% {transform: translateX(0px), skewX(0deg);}
+   0% {
+      transform: translateX(-200px);
+   }
+
+   33% {
+      transform: skewX(20deg);
+   }
+
+   100% {
+      transform: translateX(0px), skewX(0deg);
+   }
 }
 
 @keyframes homeTitleEffect {
-   0% {transform: translateY(-200px);}
-   20% {transform: translateY(50px);}
-   70% {transform: translateY(-20px);}
-   75% {transform: translateY(10px);}
-   90% {transform: translateY(-10px);}
-   93% {transform: translateY(0px);}
+   0% {
+      transform: translateY(-200px);
+   }
+
+   20% {
+      transform: translateY(50px);
+   }
+
+   70% {
+      transform: translateY(-20px);
+   }
+
+   75% {
+      transform: translateY(10px);
+   }
+
+   90% {
+      transform: translateY(-10px);
+   }
+
+   93% {
+      transform: translateY(0px);
+   }
 }
 
 @keyframes contentTextEffectL {
-   0% {transform: translateX(-1000px);}
-   33% {transform: skewX(30deg);}
-   100% {transform: translateX(0px), skewX(0deg);}
+   0% {
+      transform: translateX(-1000px);
+   }
+
+   33% {
+      transform: skewX(30deg);
+   }
+
+   100% {
+      transform: translateX(0px), skewX(0deg);
+   }
 }
+
 @keyframes contentTextEffectR {
-   0% {transform: translateX(1000px);}
-   33% {transform: skewX(-30deg);}
-   100% {transform: translateX(0px), skewX(0deg);}
+   0% {
+      transform: translateX(1000px);
+   }
+
+   33% {
+      transform: skewX(-30deg);
+   }
+
+   100% {
+      transform: translateX(0px), skewX(0deg);
+   }
 }

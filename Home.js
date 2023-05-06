@@ -9,6 +9,8 @@ import Marquee from 'react-fast-marquee';
 function Home() {
    let [show, setShow] = useState('');
    let [upDown, setUpDown] = useState('down');
+   let [smoothRight, setSmoothRight] = useState('');
+   let [smoothLeft, setSmoothLeft] = useState('');
 
    return (
       <>
@@ -49,25 +51,55 @@ function Home() {
                <img src='./img/queue4.jpg' className='w-50 example-img'></img>
                <img src='./img/queue5.jpg' className='w-50 example-img'></img>
             </Marquee>
-            
+
             {
                upDown == 'down' ?
                   <>
                      <FontAwesomeIcon onClick={() => {
-                        window.scrollBy(0, 900);
+                        window.scrollBy(0, 940);
                         setUpDown('up');
+                        console.log(window.scrollX)
+                        console.log(window.scrollY)
                      }} className='fa-3x down' icon={faAnglesDown} />
-                     <strong className='down-text'>Code가 궁금하다면❓</strong>
+                     <strong className='down-text'>More Want ✍</strong>
                   </>
                   : <FontAwesomeIcon onClick={() => {
-                     window.scrollBy(0, -2000);
+                     window.scrollBy(0, -1291);
                      setUpDown('down');
+                     console.log(window.scrollX)
+                     console.log(window.scrollY)
                   }} className='fa-3x up' icon={faAnglesUp} />
             }
          </div>
 
-         <div className='home-example container text-center my-5'>
-            <h3><strong>C언어로 알아보는 자료구조</strong></h3>
+         <div className='home-book container text-center'>
+            <h2><strong>C언어</strong>로 알아보는 자료구조</h2>
+            {/* <h4 className='mt-4'>저는 C언어를 사용해서 자료구조 공부를 했습니다.</h4> */}
+            <h4 className='my-4'>꼭 C언어로 공부할 필요는 없지만 다른 언어는 이미 만들어진 함수가 있어서 직접 구현해보고 싶다면 C언어를 추천드립니다.</h4>
+            <div className='mb-3'>
+               {/* <strong>"추천 도서"</strong> */}
+               <button onClick={() => {
+                  // document.querySelector('.book-img').scrollBy(0, -545);
+                  setSmoothLeft('');
+                  setTimeout(() => {
+                     setSmoothRight('');
+                  }, 20);
+                  setTimeout(() => {
+                     setSmoothLeft('smooth-Left');
+                  }, 10);
+               }} className='btn btn-outline-dark mx-3'>◀</button>
+               <button onClick={() => {
+                  // document.querySelector('.book-img').scrollBy(0, 545);
+                  setSmoothRight('');
+                  setTimeout(() => {
+                     setSmoothRight('smooth-Right');
+                  }, 100);
+               }} className='btn btn-outline-dark'>▶</button>
+            </div>
+            <div className={`book-img ${smoothLeft} ${smoothRight}`}>
+               <img src='./img/book1.jpg'></img>
+               <img src='./img/book2.jpg'></img>
+            </div>
          </div>
       </>
    )
