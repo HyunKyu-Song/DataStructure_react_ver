@@ -1,5 +1,5 @@
 body {
-   /* overflow-y: hidden; */
+   overflow-y: hidden;
    overflow-x: hidden;
 }
 
@@ -124,37 +124,40 @@ body {
    height: 100vh;
 }
 
-.home-book img {
+.book-img{
    width: 400px;
-   height: 545px;
-}
-
-.book-img {
-   width: 400px;
-   height: 545px;
-   overflow-y: hidden;
-   /* display: flex; */
    margin: auto;
+   position: relative;
+   /* border: 1px solid blue; */
 }
 
-.book-img img{
-   float: left;
+.book1, .book2{
+   width: 400px;
+   height: 545px;
+   opacity: 0;
+   position: absolute;
+   left: 0;
 }
 
-.smooth-Left {
-   transform: translateY(0px);
-   transition: all 0.5s;
+.book1-info, .book2-info{
+   position: absolute;
+   width: 500px;
+   height: 545px;
+   top: 100px;
+   left: 400px;
+   opacity: 0;
+   /* border: 1px solid red; */
 }
 
-.smooth-Right {
-   transform: translateY(-545px);
-   transition: all 0.5s;
+.smooth{
+   opacity: 1;
+   transition: all 1s;
 }
 
-/* .book1:hover{
-   transform: translateX(-400px);
-   transition: all 0.5s;
-} */
+.bookEx{
+   transform: translateX(-200px);
+   transition: all 1s;
+}
 
 @keyframes skill {
    0% {
