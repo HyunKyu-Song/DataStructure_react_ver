@@ -7,102 +7,96 @@ import Popover from 'react-bootstrap/Popover';
 import Modal from 'react-bootstrap/Modal';
 
 
-function Queue() {
+function Stack() {
    let [size, setSize] = useState(0);
    let [box, setBox] = useState([]);
-   let [enqueueValue, setenqueueValue] = useState('');
-   let [front, setFront] = useState(-1);
-   let [rear, setRear] = useState(-1);
+   let [pushVal, setPushVal] = useState('');
+   let [top, setTop] = useState(-1);
    let [modalShow, setModalShow] = useState(false);
    let [ment, setMent] = useState('');
-   let [colorCnt, setColorCnt] = useState(0);
    let [color, setColor] = useState(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple']);
 
    return (
       <>
          <header className='container'>
-            <Alert variant='dark' className='queue-header text-center mt-2'>
-               <h2>Q U E U E</h2>
+            <Alert variant='dark' className='stack-header text-center mt-2'>
+               <h2>S T A C K</h2>
             </Alert>
          </header>
 
-         <main className="queue-main container">
+         <main className="stack-main container">
 
-            <div className='queue-size'>
+            <div className='stack-size'>
                <input onInput={(e) => {
-                  if (e.target.value >= 0 && e.target.value <= 7)
+                  if(e.target.value >= 0 && e.target.value <= 5)
                      setSize(e.target.value);
-                  else {
+                  else{
                      setModalShow(true);
                      setMent('Size 오류');
                      setSize(0);
                   }
-               }} type='number' placeholder='size' max={7} min={0} />{' '}
+               }} type='number' placeholder='size' max={5} min={0} />{' '}
                <Button variant="outline-primary" onClick={() => {
-                  setFront(-1);
-                  setRear(-1);
+                  setTop(-1);
                   setBox([]);
-                  setColorCnt(0);
                }}>reset</Button> <Example />
             </div>
 
-            <div className='queue-enqueue my-2'>
+            <div className='stack-push my-2'>
                <input onInput={(e) => {
-                  setenqueueValue(e.target.value);
-               }} type='text' maxLength='5' placeholder='Queue 값 입력' />{' '}
+                  setPushVal(e.target.value);
+               }} type='text' maxLength='5' placeholder='Stack 값 입력' />{' '}
                <Button variant="outline-success" onClick={() => {
-                  setFront(front => front + 1);
+                  setTop(top => top + 1);
                   if (size == 0) {
                      setModalShow(true);
                      setMent('Size 오류');
-                     setFront(front => front - 1);
+                     setTop(top => top - 1);
                   }
-                  else if (size - 1 > front) {
+                  else if (size - 1 > top) {
                      let copy = [...box];
-                     copy.push(enqueueValue);
+                     copy.unshift(pushVal);
                      setBox(copy);
                   }
-                  else if (size - 1 == front) {
-                     setFront(front => front - 1);
+                  else if (size - 1 == top) {
+                     setTop(top => top - 1);
                      setModalShow(true);
                      setMent('Full');
                   }
                   //console.log(size, top);
-               }}>enqueue</Button>
+               }}>push</Button>
             </div>
 
-            <div className='queue-dequeue'>
-               <input type='number' min={-1} disabled placeholder={`front = ${front} rear = ${rear}`} />{' '}
+            <div className='stack-pop'>
+               <input type='number' min={-1} disabled placeholder={`top = ${top}`} />{' '}
                <Button variant="outline-danger" onClick={() => {
-                  if (front === rear) {
+                  if (top === -1) {
                      setModalShow(true);
                      setMent('Empty');
                   }
-                  else if (front > -1) {
+                  else if (top > -1) {
                      let copy = [...box];
                      copy.shift();
                      setBox(copy);
-                     setRear(rear + 1);
-                     setColorCnt(colorCnt + 1);
+                     setTop(top - 1);
                   }
-               }}>dequeue</Button>
+               }}>pop</Button>
             </div>
 
             <SizeAlert show={modalShow} ment={ment} onHide={() => setModalShow(false)} />
 
-            <div className='queue-container mt-5'>
-               {
-                  box.map(function (item, i) {
-                     return (
-                        <>
-                           <div className='queue-box mx-1' style={{ backgroundColor: color[i + colorCnt] }} key={i} >
-                              <h4 className='text-center pt-4'>{item}</h4>
-                           </div>
-                        </>
-                     )
-                  })
-               }
-            </div>
+            {
+               box.map(function (item, i) {
+                  return (
+                     <>
+                        <div className='stack-box mt-2' style={{ backgroundColor: color[box.length - 1 - i] }} key={i} >
+                           <h4 className='text-center pt-3'>{item}</h4>
+                           <p className='text-center'>top = {box.length - 1 - i}</p>
+                        </div>
+                     </>
+                  )
+               })
+            }
 
          </main>
 
@@ -112,13 +106,13 @@ function Queue() {
 }
 
 const popover = (
-   <Popover id="popover-basic"  style={{maxWidth:'none'}}>
+   <Popover id="popover-basic" style={{maxWidth:'none'}}>
       <Popover.Header as="h3">💡 사용법</Popover.Header>
       <Popover.Body>
          <div>
-            <p>👉 size 선택 ( 1 ~ 7 )</p>
-            <p>👉 삽입할 데이터 입력하고 <b><q>enqueue 클릭</q></b></p>
-            <p>👉 데이터 삭제하고 싶을 때 <b><q>dequeue 클릭</q></b></p>
+            <p>👉 size 선택 ( 1 ~ 5 )</p>
+            <p>👉 삽입할 데이터 입력하고 <b><q>push 클릭</q></b></p>
+            <p>👉 데이터 삭제하고 싶을 때 <b><q>pop 클릭</q></b></p>
             <p>👉 초기화는 <b><q>reset 클릭</q></b>
             </p>
          </div>
@@ -156,4 +150,4 @@ function SizeAlert(props) {
    );
 }
 
-export default Queue;
+export default Stack;
