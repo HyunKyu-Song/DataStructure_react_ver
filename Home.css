@@ -49,6 +49,10 @@ body {
    -webkit-user-select: none;
 }
 
+.home-skill-mobile{
+   display: none;
+}
+
 .showSkill {
    animation-name: skill;
    animation-duration: 1.3s;
@@ -61,16 +65,21 @@ body {
    transition: all 0.5s;
 }
 
+.home-example-mobile{
+   display: none;
+}
+
 .example-img {
    border-radius: 10px;
    border: 3px solid black;
    cursor: pointer;
+   height: 350px;
 }
 
 .down-text {
-   position: fixed;
+   /* position: fixed;
    left: 53%;
-   bottom: 80px;
+   bottom: 80px; */
    -webkit-touch-callout: none;
    user-select: none;
    -moz-user-select: none;
@@ -131,6 +140,10 @@ body {
    /* border: 1px solid blue; */
 }
 
+.book-img .책설명{
+   display: none;
+}
+
 .book1, .book2{
    width: 400px;
    height: 545px;
@@ -157,6 +170,10 @@ body {
 .bookEx{
    transform: translateX(-200px);
    transition: all 1s;
+}
+
+.home-book button{
+   margin-left: 10px;
 }
 
 @keyframes skill {
@@ -224,5 +241,111 @@ body {
 
    100% {
       transform: translateX(0px), skewX(0deg);
+   }
+}
+
+
+@media screen and (max-width: 768px){
+   body{
+      background-color: red;
+
+   }
+
+	.home-contentText h4{
+		font-size: 0.8rem;
+	}
+
+   .skill-btn{
+      display: none;
+   }
+
+   .home-skill{
+      margin: auto;
+      width: 300px;
+      overflow-x: scroll;
+      opacity: 1;
+      font-size: 0.8rem;
+   }
+
+   .home-skill li{
+      margin-left: 15px;
+   }
+
+   .home-skill-mobile{
+      display: block;
+   }
+
+   .home-example{
+      display: none;
+   }
+
+   .home-example-mobile{
+      display: block;
+   }
+
+   .home-example-marquee-mobile{
+      height: 200px;
+   }
+
+   .example-img{
+      height: 200px;
+   }
+
+   .home-book{
+      margin-top: 10rem;
+   }
+
+   .home-book h4{
+      font-size: 0.8rem;
+   }
+
+   .home-book button{
+      width: 100%;
+      margin-left: 0px;
+      margin-bottom: 10px;
+   }
+
+   .book-img{
+      width: 300px;
+   }
+
+   .book1, .book2{
+      width: 300px;
+      height: 383px;
+      /* left: 50% */
+   }
+
+   .book1-info, .book2-info{
+      font-size: 0.9rem;
+      width: 300px;
+      height: 383px;
+      left: 0;
+      top:0;
+      color: whitesmoke;
+      background-color: cornflowerblue;
+      padding: 1.3rem;
+   }
+
+   .bookEx{
+      transform: translateX(0);
+   }
+
+   div .down, div .up{
+      font-size: 1.5rem;
+   }
+
+   div .down-text{
+      font-size: 0.8rem;
+   }
+
+   .책설명{
+      position: fixed;
+      bottom: 10%;
+      left: calc(50% - 46px);
+      z-index: 1;
+   }
+
+   .book-img .책설명{
+      display: block;
    }
 }
