@@ -37,7 +37,7 @@ function Queue() {
                      setMent('Size 오류');
                      setSize(0);
                   }
-               }} type='number' placeholder='size' max={7} min={0} />{' '}
+               }} type='number' placeholder='size' max={7} min={0} style={{maxWidth:'100px'}} />{' '}
                <Button variant="outline-primary" onClick={() => {
                   setFront(-1);
                   setRear(-1);

@@ -28,14 +28,14 @@ function Stack() {
 
             <div className='stack-size'>
                <input onInput={(e) => {
-                  if(e.target.value >= 0 && e.target.value <= 5)
+                  if (e.target.value >= 0 && e.target.value <= 5)
                      setSize(e.target.value);
-                  else{
+                  else {
                      setModalShow(true);
                      setMent('Size 오류');
                      setSize(0);
                   }
-               }} type='number' placeholder='size' max={5} min={0} />{' '}
+               }} type='number' placeholder='size' max={5} min={0} style={{maxWidth:'100px'}} />{' '}
                <Button variant="outline-primary" onClick={() => {
                   setTop(-1);
                   setBox([]);
@@ -85,18 +85,20 @@ function Stack() {
 
             <SizeAlert show={modalShow} ment={ment} onHide={() => setModalShow(false)} />
 
-            {
-               box.map(function (item, i) {
-                  return (
-                     <>
-                        <div className='stack-box mt-2' style={{ backgroundColor: color[box.length - 1 - i] }} key={i} >
-                           <h4 className='text-center pt-3'>{item}</h4>
-                           <p className='text-center'>top = {box.length - 1 - i}</p>
-                        </div>
-                     </>
-                  )
-               })
-            }
+            <div className='stack-container'>
+               {
+                  box.map(function (item, i) {
+                     return (
+                        <>
+                           <div className='stack-box mt-2' style={{ backgroundColor: color[box.length - 1 - i] }} key={i} >
+                              <h4 className='text-center pt-3'>{item}</h4>
+                              <p className='text-center'>top = {box.length - 1 - i}</p>
+                           </div>
+                        </>
+                     )
+                  })
+               }
+            </div>
 
          </main>
 
@@ -106,7 +108,7 @@ function Stack() {
 }
 
 const popover = (
-   <Popover id="popover-basic" style={{maxWidth:'none'}}>
+   <Popover id="popover-basic" style={{ maxWidth: 'none' }}>
       <Popover.Header as="h3">💡 사용법</Popover.Header>
       <Popover.Body>
          <div>

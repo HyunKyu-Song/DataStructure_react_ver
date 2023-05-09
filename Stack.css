@@ -1,0 +1,29 @@
+.stack-container{
+   display: flex;
+   flex-direction: column;
+}
+
+.stack-box{
+   width: 100px;
+   height: 100px;
+   min-height: 100px;
+   border-radius: 20px;
+   background-color: coral;
+}
+
+.stack-box h4, .stack-box p{
+   font-weight: bolder;
+}
+
+.stack-header h2{
+   font-family: 'Open Sans', sans-serif;
+   color: cornflowerblue;
+}
+
+@media screen and (max-width: 768px){
+   .stack-container{
+      overflow-y: scroll;
+      height: 400px;
+      align-items: center;
+   }
+}

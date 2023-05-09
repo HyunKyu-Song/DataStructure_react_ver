@@ -10,8 +10,14 @@
 
 .linkedList-box{
    width: 200px;
-   min-width: 50px;
+   min-width: 100px;
    height: 80px;
    border-radius: 20px;
    background-color: coral;
+}
+
+@media screen and (max-width: 768px){
+   .linkedList-container{
+      overflow-x: scroll;
+   }
 }

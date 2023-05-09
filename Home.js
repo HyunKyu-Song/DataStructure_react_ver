@@ -12,6 +12,11 @@ function Home() {
    let [img1, setImg1] = useState('');
    let [img2, setImg2] = useState('');
    let [bookEx, setBookEx] = useState('');
+   let [book1InfoM, setBook1InfoM] = useState('');
+   let [book2InfoM, setBook2InfoM] = useState('');
+   let [bookBtn, setBookBtn] = useState('btn-success');
+   let [cnt, setCnt] = useState(0);
+   let [btnShow, setBtnShow] = useState('');
 
 
    return (
@@ -74,6 +79,9 @@ function Home() {
                      <div>
                         <FontAwesomeIcon onClick={() => {
                            window.scrollBy(0, 940); setUpDown('up');
+                           if(img1 != '' || img2 != ''){
+                              setBtnShow('btn-show');
+                           }
                         }} className='fa-3x down' icon={faAnglesDown} />
                         <strong onClick={() => {
                            window.scrollBy(0, 940); setUpDown('up');
@@ -82,7 +90,7 @@ function Home() {
                   </>
                   : <FontAwesomeIcon onClick={() => {
                      window.scrollBy(0, -1291);
-                     setUpDown('down');
+                     setUpDown('down'); setBtnShow('');
                      // console.log(window.scrollX)
                      // console.log(window.scrollY)
                   }} className='fa-3x up' icon={faAnglesUp} />
@@ -96,10 +104,24 @@ function Home() {
             <button className='btn btn-outline-dark' onClick={() => {
                setImg2('');
                setImg1('smooth bookEx');
+               setBook2InfoM('');
+               if(img1 == ''){
+                  setBookBtn('btn-success');
+                  document.querySelector('.책설명').innerHTML = '책 정보';
+                  setCnt(0);
+               }
+               setBtnShow('btn-show');
             }}>📘 윤성우의 열혈 자료구조</button>
             <button className='btn btn-outline-dark' onClick={() => {
                setImg1('');
                setImg2('smooth bookEx');
+               setBook1InfoM('');
+               if(img2 == ''){
+                  setBookBtn('btn-success');
+                  document.querySelector('.책설명').innerHTML = '책 정보';
+                  setCnt(0);
+               }
+               setBtnShow('btn-show');
             }}>📙 C언어로 쉽게 풀어쓴 자료구조</button>
             {/* <div className='book-img mt-3'>
                <img className={`book1 ${img1} ${bookEx}`} src='./img/book1.jpg'></img>
@@ -128,11 +150,41 @@ function Home() {
                   </p>
                </div>
             </div> */}
-            <div className='book-img mt-3'>
-               <button className='btn btn-success w-25 책설명'>책 정보</button>
+
+
+            <div className='book-img mt-3 book-img-mobile'>
+               <button onClick={() => {
+                  setCnt(cnt + 1);
+                  if (cnt % 2 == 0) {
+                     document.querySelector('.책설명').innerHTML = 'close';
+                     setBookBtn('btn-danger');
+                     if(img1 == ''){
+                        setBook2InfoM('bookTextShow');
+                     }
+                     else{
+                        setBook1InfoM('bookTextShow');
+                     }
+                  }
+                  else {
+                     document.querySelector('.책설명').innerHTML = '책 정보';
+                     setBookBtn('btn-success');
+                     setBook1InfoM('');
+                     setBook2InfoM('');
+                  }
+                  console.log(`cnt = ${cnt}`);
+
+                  // if (img2 == '') {
+                  //    setBook1InfoM('bookTextShow');
+                  //    setBook2InfoM('');
+                  // }
+                  // else {
+                  //    setBook1InfoM('');
+                  //    setBook2InfoM('bookTextShow');
+                  // }
+               }} className={`btn ${bookBtn} w-25 책설명 ${btnShow}`}>책 정보</button>
                <img className={`book1 ${img1} ${bookEx}`} src='./img/book1_M.jpg'></img>
                <img className={`book2 ${img2} ${bookEx}`} src='./img/book2_M.jpg'></img>
-               <div className={`book1-info ${img1}`}>
+               <div className={`book1-info book1-info-mobile ${img1} ${book1InfoM}`}>
                   <h4>윤성우의 열혈 자료구조</h4>
                   <p>저자: 윤성우</p>
                   <p>출판: 오렌지미디어</p>
@@ -144,7 +196,7 @@ function Home() {
                      - 강의 퀄리티도 높으며, 교재의 코드도 파일로 제공<br />
                   </p>
                </div>
-               <div className={`book2-info ${img2}`}>
+               <div className={`book2-info book2-info-mobile ${img2} ${book2InfoM}`}>
                   <h4>C언어로 쉽게 풀어쓴 자료구조</h4>
                   <p>저자: 천인국</p>
                   <p>출판: 생능출판</p>

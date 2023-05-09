@@ -3,13 +3,23 @@
 }
 
 .queue-box{
+   min-width: 100px;
    width: 100px;
    height: 100px;
    border-radius: 20px;
-   background-color: coral;
+}
+
+.queue-box h4{
+   font-weight: bolder;
 }
 
 .queue-header h2{
    font-family: 'Open Sans', sans-serif;
    color: cornflowerblue;
+}
+
+@media screen and (max-width: 768px){
+   .queue-container{
+      overflow-x: scroll;
+   }
 }

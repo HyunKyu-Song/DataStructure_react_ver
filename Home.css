@@ -265,10 +265,11 @@ body {
       overflow-x: scroll;
       opacity: 1;
       font-size: 0.8rem;
+      justify-content: flex-start;
    }
 
    .home-skill li{
-      margin-left: 15px;
+      margin-left: 30px;
    }
 
    .home-skill-mobile{
@@ -316,14 +317,22 @@ body {
    }
 
    .book1-info, .book2-info{
-      font-size: 0.9rem;
+      font-size: 0.75rem;
       width: 300px;
       height: 383px;
       left: 0;
       top:0;
       color: whitesmoke;
-      background-color: cornflowerblue;
+      background-color: black;
       padding: 1.3rem;
+   }
+
+   .book1-info-mobile, .book2-info-mobile{
+      opacity: 0;
+   }
+
+   .bookTextShow{
+      opacity: 0.8;
    }
 
    .bookEx{
@@ -343,9 +352,15 @@ body {
       bottom: 10%;
       left: calc(50% - 46px);
       z-index: 1;
+      opacity: 0;
    }
-
+   
    .book-img .책설명{
       display: block;
+   }
+   
+   .btn-show{
+      opacity: 1;
+      transition: all 2s;
    }
 }
